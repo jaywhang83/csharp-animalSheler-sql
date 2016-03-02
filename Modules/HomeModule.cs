@@ -44,7 +44,7 @@ namespace AnimalShelter
       Post["/animals/delete"] = _ =>
       {
         Animal.DeleteAll();
-        return View["type_deleted.cshtml"];
+        return View["animals_deleted.cshtml"];
       };
       Get["/{id}"] = parameters =>
       {
@@ -58,7 +58,7 @@ namespace AnimalShelter
       Post["/animalTypes/delete"] = _ =>
       {
         AnimalType.DeleteAll();
-        return View["type_deleted.cshtml"];
+        return View["animals_deleted.cshtml"];
       };
       Get["/animals/breed"] = _ =>
       {
