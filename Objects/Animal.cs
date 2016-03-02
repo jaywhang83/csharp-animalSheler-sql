@@ -128,6 +128,73 @@ namespace AnimalShelter
       return allAnimals;
     }
 
+    public static List<Animal> GetByAlphabeticalOrder()
+    {
+      List<Animal> allAnimals = new List<Animal>{};
+
+      SqlConnection conn = DB.Connection();
+      SqlDataReader rdr = null;
+      conn.Open();
+
+      SqlCommand cmd= new SqlCommand("SELECT * FROM animals ORDER BY name ASC;", conn);
+      rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        int animalId = rdr.GetInt32(0);
+        string animalName = rdr.GetString(1);
+        string animalGender = rdr.GetString(2);
+        DateTime date = rdr.GetDateTime(3);
+        string animalBreed = rdr.GetString(4);
+        int typeId = rdr.GetInt32(5);
+
+        Animal newAnimal = new Animal(animaNam, AnimalGender, date, AnimalBreed, typeId, animalId);
+        allAnimals.Add(newAnimal);
+      }
+
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+      return allAnimals;
+    }
+
+    public static List<Animal> GetByAlphabeticalOrder()
+    {
+      SqlConnection conn = DB.Connection();
+      SqlDataReader rdr = null;
+      conn.Open();
+
+      SqlCommand cms = new SqlCommand("SELECT * FROM animals GROUP BY breed;", conn);
+      rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        int animalId = rdr.GetInt32(0);
+        string animalName = rdr.GetString(1);
+        string animalGender = rdr.GetString(2);
+        DateTime date = rdr.GetDateTime(3);
+        string animalBreed = rdr.GetString(4);
+        int typeId = rdr.GetInt32(5);
+
+        Animal newAnimal = new Animal(animaNam, AnimalGender, date, AnimalBreed, typeId, animalId);
+        allAnimals.Add(newAnimal);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+      return allAnimals; 
+    }
+
     public void Save()
     {
       SqlConnection conn = DB.Connection();
