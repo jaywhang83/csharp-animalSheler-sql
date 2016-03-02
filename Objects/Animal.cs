@@ -148,7 +148,7 @@ namespace AnimalShelter
         string animalBreed = rdr.GetString(4);
         int typeId = rdr.GetInt32(5);
 
-        Animal newAnimal = new Animal(animaNam, AnimalGender, date, AnimalBreed, typeId, animalId);
+        Animal newAnimal = new Animal(animalName, animalGender, date, animalBreed, typeId, animalId);
         allAnimals.Add(newAnimal);
       }
 
@@ -163,13 +163,15 @@ namespace AnimalShelter
       return allAnimals;
     }
 
-    public static List<Animal> GetByAlphabeticalOrder()
+    public static List<Animal> GetAllByBreed()
     {
+      List<Animal> allAnimals = new List<Animal>{};
+
       SqlConnection conn = DB.Connection();
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cms = new SqlCommand("SELECT * FROM animals GROUP BY breed;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM animals GROUP BY breed;", conn);
       rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
@@ -181,7 +183,7 @@ namespace AnimalShelter
         string animalBreed = rdr.GetString(4);
         int typeId = rdr.GetInt32(5);
 
-        Animal newAnimal = new Animal(animaNam, AnimalGender, date, AnimalBreed, typeId, animalId);
+        Animal newAnimal = new Animal(animalName, animalGender, date, animalBreed, typeId, animalId);
         allAnimals.Add(newAnimal);
       }
       if(rdr != null)
@@ -192,7 +194,7 @@ namespace AnimalShelter
       {
         conn.Close();
       }
-      return allAnimals; 
+      return allAnimals;
     }
 
     public void Save()
