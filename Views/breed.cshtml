@@ -1,0 +1,43 @@
+<!-- <h1>Here are animals by breed</h1>
+@if(@Model.Count ==0)
+{
+  <p>There are no breeds.</p>
+}
+else
+{
+  <ul>
+    @foreach(var animal in Model)
+    {
+      <li>@animal.GetBreed()</li>
+        <ul>
+          <li>"Name: " @animal.GetName()</li>
+          <li>"Gender: " @animal.GetGender()</li>
+          <li>"Date of admittance: " @animal.GetDate()</li>
+        </ul>
+    }
+  </ul>
+}
+<p><a href="/animals">View all animals</a></p>
+<p><a href="/animals/alphabetical">View animals by alphabetically</a></p>
+</p><a href="/">Return home</a></p> -->
+
+<h1>Here are animals by breed</h1>
+@if(@Model.Count ==0)
+{
+  <p>There are no breeds.</p>
+}
+else
+{
+    @foreach(var animal in Model)
+    {
+      <p>@animal.GetBreed()</p>
+        <ul>
+          <li>Name:  @animal.GetName()</li>
+          <li>Gender: @animal.GetGender()</li>
+          <li>Date of admittance: @animal.GetDate()</li>
+        </ul>
+    }
+}
+<p><a href="/animals">View all animals</a></p>
+<p><a href="/animals/alphabetical">View animals by alphabetically</a></p>
+</p><a href="/">Return home</a></p>

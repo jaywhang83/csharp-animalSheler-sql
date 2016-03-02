@@ -42,6 +42,6 @@ namespace AnimalShelter
 
   public static class DBConfiguration
   {
-    public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=animalShelter;Integrated Security=SSPI;";
+    public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=animal_shelter;Integrated Security=SSPI;";
   }
 }

@@ -1,0 +1,25 @@
+<h2>Here are all the animal in this animal type</h1>
+
+  @if(@Model["animals"].Count==0)
+  {
+    <p>No animals have been added yet!</p>
+  }
+  else
+  {
+    <ol>
+      @foreach(var animal in @Model["animals"])
+      {
+        <li>@animal.GetName()</li>
+          <ul>
+            <li>Gender: @animal.GetGender()</li>
+            <li>Date of admittance: @animal.GetDate()</li>
+            <li>Breed: @animal.GetBreed()</li>
+          </ul>
+      }
+    </ol>
+    <form action="/animals/delete" method="post">
+      <button type="submit">Clear all animals</button>
+    </form>
+  }
+  <p><a href="/animals/new">Add new animal</a></p>
+  <p><a href="/">Return home</a></p>

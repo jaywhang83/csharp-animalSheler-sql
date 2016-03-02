@@ -101,7 +101,7 @@ namespace AnimalShelter
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM animals ORDER BY dateOfAdmittance DESC;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM animals ORDER BY dateOfAdmittance ASC;", conn);
       rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
@@ -171,7 +171,7 @@ namespace AnimalShelter
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM animals GROUP BY breed;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM animals ORDER BY breed;", conn);
       rdr = cmd.ExecuteReader();
 
       while(rdr.Read())

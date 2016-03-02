@@ -91,7 +91,7 @@ namespace AnimalShelter
     public void Dispose()
     {
       AnimalType.DeleteAll();
-      Animal.DeleteAll(); 
+      Animal.DeleteAll();
     }
   }
 }
